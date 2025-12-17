@@ -17,6 +17,7 @@ import Post from "./pages/Post";
 
 import AllPosts from "./pages/AllPosts";
 import Contact from './pages/Contact.jsx'
+import MyPosts from './pages/MyPosts.jsx'
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
         {
             path: "/contact",
             element: <Contact />
+        },
+        {
+            path: "/my-posts",
+            element: <MyPosts />
         }
     ],
 },
