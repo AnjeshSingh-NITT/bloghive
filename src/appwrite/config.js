@@ -3,7 +3,7 @@ import conf from '../conf/conf.js';
 
 export class Service{
     client = new Client();
-    // databases;
+    databases;
     tablesDB;
     bucket;
 
@@ -12,7 +12,7 @@ export class Service{
             .setEndpoint(conf.appwriteUrl)
             .setProject(conf.appwriteProjectId);
 
-        // this.databases = new Databases(this.client);
+        this.databases = new Databases(this.client);
         this.tablesDB = new TablesDB(this.client);
         this.bucket = new Storage(this.client);
     }
@@ -38,8 +38,17 @@ export class Service{
     //     }
     // }
 
+    
+
     async createPost({title,slug,content,featuredImage,status,userId}){
         try {
+            console.log("Creating post with:", {
+                title,
+                content,
+                featuredImage,
+                status,
+                userId
+                })
             return await this.tablesDB.createRow({
                 databaseId: conf.appwriteDatabaseId,
                 tableId: conf.appwriteTableId,
@@ -139,7 +148,7 @@ export class Service{
     }
 
     getFilePreview(fileId){
-        return this.bucket.getFilePreview({
+        return this.bucket.getFileView({
             bucketId: conf.appwriteBucketId,
             fileId: fileId,
         })

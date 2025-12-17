@@ -9,7 +9,7 @@ import Select from "./Select";
 import PostCard from "./PostCard";
 import Login from "./Login";
 import Signup from "./Signup";
-import Protected from "./AuthLayout"; 
+import ProtectedAuth from "./AuthLayout"; 
 import RTE from "./RTE";
 import PostForm from "./post-form/PostForm";
 
@@ -25,7 +25,7 @@ export {
     PostCard,
     Login,
     Signup,
-    Protected,
+    ProtectedAuth,
     RTE,
     PostForm
 }

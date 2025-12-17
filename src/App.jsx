@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import authService from './appwrite/auth'
 import { login, logout } from './store/authSlice'
 import { Header, Footer } from './components'
+import { Outlet } from 'react-router'
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
     authService.getCurrentUser()
       .then((userData) => {
         if (userData) {
-          dispatch(login({ userData }))
+          dispatch(login(userData))
         } else {
           dispatch(logout())
         }
@@ -29,7 +30,7 @@ function App() {
         <Header />
 
         <main className="grow px-4 py-8">
-          {/* TODO: <Outlet /> */}
+          <Outlet />
         </main>
 
         <Footer />
