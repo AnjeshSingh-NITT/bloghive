@@ -31,13 +31,8 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-200 hover:text-purple-400 transition" to="/blog">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-200 hover:text-purple-400 transition" to="/about">
-                  About
+                <Link className="text-gray-200 hover:text-purple-400 transition" to="/all-posts">
+                  Blogs
                 </Link>
               </li>
               <li>

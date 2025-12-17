@@ -1,5 +1,6 @@
 import { Client, ID, Databases, Storage, Query, TablesDB } from 'appwrite';
 import conf from '../conf/conf.js';
+import { useRouteLoaderData } from 'react-router';
 
 export class Service{
     client = new Client();
@@ -40,14 +41,15 @@ export class Service{
 
     
 
-    async createPost({title,slug,content,featuredImage,status,userId}){
+    async createPost({title,slug,content,featuredImage,status,userId,authorName}){
         try {
             console.log("Creating post with:", {
                 title,
                 content,
                 featuredImage,
                 status,
-                userId
+                userId,
+                authorName,
                 })
             return await this.tablesDB.createRow({
                 databaseId: conf.appwriteDatabaseId,
@@ -58,7 +60,8 @@ export class Service{
                     content,
                     featuredImage,
                     status,
-                    userId
+                    userId,
+                    authorName
                 }
             })
         } catch (error) {

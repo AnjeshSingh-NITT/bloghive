@@ -14,6 +14,12 @@ export default function Post() {
 
     const isAuthor = post && userData ? post.userId === userData.$id : false;
 
+    const formattedDate = post? new Date(post.$createdAt).toLocaleString("en-IN", {
+        dateStyle: "medium",
+        timeStyle: "short",
+        })
+    : "";
+
     useEffect(() => {
         if (slug) {
             appwriteService.getPost(slug).then((post) => {
@@ -49,14 +55,28 @@ export default function Post() {
                                     Edit
                                 </Button>
                             </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>
+                            <button 
+                            className="inline-block px-5 py-2 rounded-full
+                            bg-pink-600/20 text-white
+                            border border-purple-500/30
+                            hover:bg-red-600/30 hover:text-white
+                            transition duration-200" 
+                            onClick={deletePost}>
                                 Delete
-                            </Button>
+                            </button>
                         </div>
                     )}
                 </div>
                 <div className="w-full mb-6">
                     <h1 className="text-2xl font-bold">{post.title}</h1>
+
+                    <p className="mt-1 text-sm text-gray-400">
+                        By{" "}
+                        <span className="text-purple-400">
+                        {post.authorName || "Unknown author"}
+                        </span>{" "}
+                        · {formattedDate}
+                    </p>
                 </div>
                 <div className="browser-css">
                     {parse(post.content)}

@@ -14,8 +14,8 @@ function LogoutBtn() {
 
   return (
    <button
-    className="inline-block px-6 py-2 rounded-full bg-purple-600/20 text-purple-300 border 
-    border-purple-500/30 hover:bg-purple-600/30 hover:text-purple-200 transition duration-200"
+    className="inline-block px-6 py-2 rounded-full bg-purple-600/20 text-white border 
+    border-purple-500/30 hover:bg-pink-600/30 hover:text-purple-200 transition duration-200"
     onClick={logoutHandler}
     >
         Logout

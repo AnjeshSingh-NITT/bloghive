@@ -29,7 +29,7 @@ function App() {
         
         <Header />
 
-        <main className="grow px-4 py-8">
+        <main className="px-4 py-8">
           <Outlet />
         </main>
 
